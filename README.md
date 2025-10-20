@@ -30,7 +30,7 @@ This project is part of my personal Flutter portfolio, created to push my unders
 
 🖼️ Design Credit
 
-Original design concept by https://www.behance.net/gallery/236361031/Its-a-modern-Coffee-App-UI-Design (used for educational and portfolio purposes).
+Original design concept: https://www.behance.net/gallery/236361031/Its-a-modern-Coffee-App-UI-Design (used for educational and portfolio purposes).
 
 💬 Feedback
 
