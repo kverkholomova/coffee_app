@@ -1,8 +1,10 @@
 import 'package:coffee_app/providers/theme_provider.dart';
-import 'package:coffee_app/widgets/coffee_card.dart';
+import 'package:coffee_app/widgets/coffee_cards/item_coffee_card.dart';
 import 'package:coffee_app/widgets/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../../widgets/coffee_cards/new_coffee_card.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -41,6 +43,17 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
             TitleText(title: "New",),
+
+            NewCoffeeCard(
+              title: "iced latte",
+              description: "a cold coffee drink made with espresso, "
+                  "cold milk, and ice, creating a smoother and creamier "
+                  "texture than iced coffee. It's a chilled version of a traditional "
+                  "latte, prepared by pouring shots of espresso over ice and then "
+                  "adding cold milk, often with an optional sweetener "
+                  "like a flavored syrup.",
+              link: "https://static.vecteezy.com/system/resources/thumbnails/047/732/342/small_2x/iced-coffee-in-plastic-cups-with-straw-transparent-background-png.png",
+            ),
             TitleText(title: "Popular",),
 
 
