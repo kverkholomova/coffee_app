@@ -17,68 +17,75 @@ class NewCoffeeCard extends StatelessWidget {
         builder: (context, constraints) {
           double cardWidth = constraints.maxWidth; // width the parent allows
           double imageSize = cardWidth * 0.6;      // 60% of card width
-          double borderRadius = cardWidth * 0.2;   // 20% of card width
+          double borderRadius = cardWidth * 0.05;  // 20% of card width
           double padding = cardWidth * 0.1;        // 10% of card width
           double fontSize = cardWidth * 0.04;      // dynamic text size
-          return Card(
-            margin: EdgeInsets.all(padding / 2),
-            color: const Color.fromRGBO(239, 203, 176, 1.0),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(borderRadius),
-            ),
-            clipBehavior: Clip.hardEdge,
-            child: InkWell(
-              splashColor: const Color.fromRGBO(109, 82, 62, 1.0),
-              onTap: () {
-                debugPrint('Card tapped.');
-              },
-              child: Padding(
-                padding: EdgeInsets.symmetric(
-                    vertical: padding, horizontal: padding),
-                child: Row(
-                  children: [
-                    Column(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
+          return Stack(
+            clipBehavior: Clip.none,
+            children: [
+              Card(
+                margin: EdgeInsets.all(padding / 2),
+                color: const Color.fromRGBO(239, 203, 176, 1.0),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(borderRadius),
+                ),
+                clipBehavior: Clip.hardEdge,
+                child: InkWell(
+                  splashColor: const Color.fromRGBO(109, 82, 62, 1.0),
+                  onTap: () {
+                    debugPrint('Card tapped.');
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                        vertical: padding, horizontal: padding),
+                    child: Row(
                       children: [
-                        Text(
-                          title.toUpperCase(),
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.montserrat(
-                            fontSize: fontSize,
-                            fontWeight: FontWeight.w700,
-                            color: Theme.of(context).textTheme.bodyMedium?.color,
-                          ),
+                        Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              title.toUpperCase(),
+                              textAlign: TextAlign.start,
+                              style: GoogleFonts.montserrat(
+                                fontSize: cardWidth * 0.055,
+                                fontWeight: FontWeight.w800,
+                                color: Theme.of(context).textTheme.bodyMedium?.color,
+                              ),
+                            ),
+                            ConstrainedBox(
+                              constraints: BoxConstraints(maxWidth: cardWidth*0.45),
+                              child: Text(
+                                description,
+                                maxLines: 3,
+                                overflow: TextOverflow.ellipsis,
+                                textAlign: TextAlign.start,
+                                style: GoogleFonts.montserrat(
+                                  fontSize: fontSize,
+                                  color: Theme.of(context).textTheme.bodyMedium?.color,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                         SizedBox(
-                          width: 100,
-                          child: Text(
-                            description,
-                            maxLines: 5,
-                            overflow: TextOverflow.fade,
-                            textAlign: TextAlign.center,
-                            style: GoogleFonts.montserrat(
-                              fontSize: fontSize,
-                              color: Theme.of(context).textTheme.bodyMedium?.color,
-                            ),
-                          ),
-                        ),
+                          width: cardWidth*0.2,
+                        )
                       ],
                     ),
-                    Expanded(
-                      child: SizedBox(
-                        width: imageSize,
-                        height: imageSize,
-                        child: CircularImage(link: link),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ),
-            ),
+              Positioned(
+                right: -imageSize * 0.2,
+                top: cardWidth * 0.05,
+                child: SizedBox(
+                  width: imageSize,
+                  height: imageSize,
+                  child: CircularImage(link: link),
+                ),
+              ),
+            ],
           );
         },
       ),
