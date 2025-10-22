@@ -34,11 +34,11 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 ItemCoffeeCard(
                   title: "hot coffee",
-                  link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUBRF74tHzNAxEU_vuCz2qJfwRuj61N5ZAF1DN-ss3tif3IjBjFUu64-X3Jm1sec7FHV4&usqp=CAU",
+                  link: "assets/hot_coffee.jpg",
                 ),
                 ItemCoffeeCard(
                   title: "cold coffee",
-                  link: "https://palatesdesire.com/wp-content/uploads/2022/02/iced-coffee-recipe@palates-desire-4.jpg",
+                  link: "assets/cold_coffee.jpg",
                 ),
               ],
             ),
@@ -52,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   "latte, prepared by pouring shots of espresso over ice and then "
                   "adding cold milk, often with an optional sweetener "
                   "like a flavored syrup.",
-              link: "https://static.vecteezy.com/system/resources/thumbnails/047/732/342/small_2x/iced-coffee-in-plastic-cups-with-straw-transparent-background-png.png",
+              link: "assets/iced-coffee.png",
             ),
             TitleText(title: "Popular",),
 
