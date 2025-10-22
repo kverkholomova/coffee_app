@@ -16,7 +16,7 @@ class ItemCoffeeCard extends StatelessWidget {
         builder: (context, constraints) {
           double cardWidth = constraints.maxWidth; // width the parent allows
           double cardHeight = cardWidth * 1.4; // make height larger than width
-          double imageSize = cardWidth * 0.6;      // 60% of card width
+          double imageSize = cardWidth * 0.7;      // 60% of card width
           double borderRadius = cardWidth / 2;   // 20% of card width
           double padding = cardWidth * 0.1;        // 10% of card width
           double fontSize = cardWidth * 0.12;      // dynamic text size
