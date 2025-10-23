@@ -25,8 +25,9 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         padding: const EdgeInsets.symmetric(horizontal: 20),
-
+        scrollDirection: Axis.vertical,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -57,6 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
               link: "assets/iced-coffee.png",
             ),
             TitleText(title: "Popular",),
+            CoffeeCarousel()
           ],
         ),
       ),
