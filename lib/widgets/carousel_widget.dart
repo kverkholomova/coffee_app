@@ -13,11 +13,10 @@ class _CoffeeCarouselState extends State<CoffeeCarousel> {
   double _currentPage = 0.0;
 
   final List<PopularCoffee> coffees = [
-    PopularCoffee(name: 'Cappuccino', image: "assets/cold_coffee.jpg"),
-    PopularCoffee(name: 'Latte', image: "assets/cold_coffee.jpg"),
-    PopularCoffee(name: 'Espresso', image: "assets/cold_coffee.jpg"),
-    PopularCoffee(name: 'Mocha', image: "assets/cold_coffee.jpg"),
-    PopularCoffee(name: 'Americano', image: "assets/cold_coffee.jpg"),
+    PopularCoffee(name: 'Cappuccino', image: "assets/cappuccino.jpg", price: "24 zł"),
+    PopularCoffee(name: 'Latte', image: "assets/latte.jpg", price: "35 zł"),
+    PopularCoffee(name: 'Espresso', image: "assets/espresso.png", price: "22 zł"),
+    PopularCoffee(name: 'Americano', image: "assets/americano.png", price: "33 zł"),
   ];
 
 
@@ -50,7 +49,7 @@ class _CoffeeCarouselState extends State<CoffeeCarousel> {
                 child: child,
               );
             },
-            child: PopularCoffeeCard(name: coffees[index].name, link: coffees[index].image,),
+            child: PopularCoffeeCard(name: coffees[index].name, link: coffees[index].image, price: coffees[index].price,),
           );
         },
       ),

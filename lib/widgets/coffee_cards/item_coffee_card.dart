@@ -36,7 +36,9 @@ class ItemCoffeeCard extends StatelessWidget {
               },
               child: Padding(
                 padding: EdgeInsets.symmetric(
-                    vertical: padding, horizontal: padding),
+                    vertical: padding,
+                    horizontal: padding
+                ),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
