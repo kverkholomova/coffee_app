@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../models/popular_coffee.dart';
 import 'coffee_cards/popular_coffee_card.dart';
 
 class CoffeeCarousel extends StatefulWidget {
@@ -10,6 +11,15 @@ class CoffeeCarousel extends StatefulWidget {
 class _CoffeeCarouselState extends State<CoffeeCarousel> {
   final PageController _controller = PageController(viewportFraction: 0.65);
   double _currentPage = 0.0;
+
+  final List<PopularCoffee> coffees = [
+    PopularCoffee(name: 'Cappuccino', image: "assets/cold_coffee.jpg"),
+    PopularCoffee(name: 'Latte', image: "assets/cold_coffee.jpg"),
+    PopularCoffee(name: 'Espresso', image: "assets/cold_coffee.jpg"),
+    PopularCoffee(name: 'Mocha', image: "assets/cold_coffee.jpg"),
+    PopularCoffee(name: 'Americano', image: "assets/cold_coffee.jpg"),
+  ];
+
 
   @override
   void initState() {
@@ -23,13 +33,11 @@ class _CoffeeCarouselState extends State<CoffeeCarousel> {
 
   @override
   Widget build(BuildContext context) {
-    final items = List.generate(5, (index) => 'Cappuccino');
-
     return SizedBox(
       height: 350,
       child: PageView.builder(
         controller: _controller,
-        itemCount: items.length,
+        itemCount: coffees.length,
         itemBuilder: (context, index) {
           double scale = _currentPage == index ? 1.0 : 0.85;
 
@@ -42,7 +50,7 @@ class _CoffeeCarouselState extends State<CoffeeCarousel> {
                 child: child,
               );
             },
-            child: PopularCoffeeCard(),
+            child: PopularCoffeeCard(name: coffees[index].name, link: coffees[index].image,),
           );
         },
       ),
