@@ -1,4 +1,5 @@
 import 'package:coffee_app/providers/theme_provider.dart';
+import 'package:coffee_app/widgets/carousel_widget.dart';
 import 'package:coffee_app/widgets/coffee_cards/item_coffee_card.dart';
 import 'package:coffee_app/widgets/text_style.dart';
 import 'package:flutter/material.dart';
@@ -23,9 +24,11 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 20),
+
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -43,7 +46,6 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
             TitleText(title: "New",),
-
             NewCoffeeCard(
               title: "iced latte",
               description: "a cold coffee drink made with espresso, "
@@ -55,8 +57,6 @@ class _MyHomePageState extends State<MyHomePage> {
               link: "assets/iced-coffee.png",
             ),
             TitleText(title: "Popular",),
-
-
           ],
         ),
       ),
