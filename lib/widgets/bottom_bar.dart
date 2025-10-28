@@ -1,9 +1,11 @@
+import 'package:coffee_app/features/main_pages/profile_page.dart';
+import 'package:coffee_app/features/main_pages/search_page.dart';
 import 'package:coffee_app/providers/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_floating_bottom_bar/flutter_floating_bottom_bar.dart';
 import 'package:provider/provider.dart';
 
-import '../features/screen/home_screen.dart';
+import '../features/main_pages/home_page.dart';
 
 class CustomBottomNavBar extends StatefulWidget {
   const CustomBottomNavBar({Key? key, required this.title}) : super(key: key);
@@ -66,8 +68,8 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> with SingleTick
             children: [
 
               HomePage(),
-              HomePage(),
-              HomePage()
+              SearchPage(),
+              ProfilePage()
             ],
           ),
           child: TabBar(
