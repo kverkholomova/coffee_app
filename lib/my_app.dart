@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: themeProvider.themeData,
-      home: BottomNavBar(title: 'Coffee'),
+      home: CustomBottomNavBar(title: 'Coffee'),
     );
   }
 }

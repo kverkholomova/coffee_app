@@ -1,24 +1,19 @@
-import 'package:coffee_app/features/home/home_screen.dart';
 import 'package:coffee_app/providers/theme_provider.dart';
-import 'package:coffee_app/widgets/carousel_widget.dart';
-import 'package:coffee_app/widgets/coffee_cards/item_coffee_card.dart';
-import 'package:coffee_app/widgets/text_style.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_floating_bottom_bar/flutter_floating_bottom_bar.dart';
 import 'package:provider/provider.dart';
 
-import '../../widgets/coffee_cards/new_coffee_card.dart';
+import '../features/screen/home_screen.dart';
 
-class BottomNavBar extends StatefulWidget {
-  BottomNavBar({Key? key, required this.title}) : super(key: key);
+class CustomBottomNavBar extends StatefulWidget {
+  const CustomBottomNavBar({Key? key, required this.title}) : super(key: key);
   final String title;
 
   @override
-  _BottomNavBarState createState() => _BottomNavBarState();
+  _CustomBottomNavBarState createState() => _CustomBottomNavBarState();
 }
 
-class _BottomNavBarState extends State<BottomNavBar> with SingleTickerProviderStateMixin {
+class _CustomBottomNavBarState extends State<CustomBottomNavBar> with SingleTickerProviderStateMixin {
   late int currentPage;
   late TabController tabController;
 
@@ -57,15 +52,10 @@ class _BottomNavBarState extends State<BottomNavBar> with SingleTickerProviderSt
       child: Scaffold(
         appBar: AppBar(
           title: Text(widget.title),
-          backgroundColor: Colors.black,
         ),
         body: BottomBar(
           clip: Clip.hardEdge,
-          iconDecoration: BoxDecoration(
-            color: themeProvider.themeData.primaryColorLight,
-          ),
           barColor: themeProvider.themeData.primaryColorDark,
-          fit: StackFit.loose,
           borderRadius: BorderRadius.circular(500),
           duration: Duration(seconds: 1),
           width: MediaQuery.of(context).size.width * 0.8,
@@ -74,12 +64,16 @@ class _BottomNavBarState extends State<BottomNavBar> with SingleTickerProviderSt
           body: (context, controller) => TabBarView(
             controller: tabController,
             children: [
+
               HomePage(),
               HomePage(),
               HomePage()
             ],
           ),
           child: TabBar(
+            indicator: const BoxDecoration(),
+            overlayColor: WidgetStateProperty.all<Color>(Colors.transparent),
+            indicatorColor: Colors.transparent,
             controller: tabController,
             tabs: [
               _buildTabIcon(selectedIcon: Icons.home, index: 0, themeProvider: themeProvider, unSelectedIcon: Icons.home_filled),
@@ -101,10 +95,10 @@ class _BottomNavBarState extends State<BottomNavBar> with SingleTickerProviderSt
   }) {
     final isSelected = currentPage == index;
     return SizedBox(
-      height: 55,
+      height: MediaQuery.of(context).size.height * 0.065,
       child: Center(
         child: Icon(
-          size: isSelected?40:35,
+          size: isSelected?MediaQuery.of(context).size.height * 0.043:MediaQuery.of(context).size.height * 0.033,
           isSelected?selectedIcon:unSelectedIcon,
           color: isSelected
               ? themeProvider.themeData.bottomNavigationBarTheme.selectedItemColor
