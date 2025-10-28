@@ -57,7 +57,8 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> with SingleTick
         ),
         body: BottomBar(
           clip: Clip.hardEdge,
-          barColor: themeProvider.themeData.primaryColorDark,
+          barColor: themeProvider.themeData
+              .brightness == Brightness.dark?themeProvider.themeData.primaryColorLight: themeProvider.themeData.primaryColorDark,
           borderRadius: BorderRadius.circular(500),
           duration: Duration(seconds: 1),
           width: MediaQuery.of(context).size.width * 0.8,
@@ -102,9 +103,8 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> with SingleTick
         child: Icon(
           size: isSelected?MediaQuery.of(context).size.height * 0.043:MediaQuery.of(context).size.height * 0.033,
           isSelected?selectedIcon:unSelectedIcon,
-          color: isSelected
-              ? themeProvider.themeData.bottomNavigationBarTheme.selectedItemColor
-              : themeProvider.themeData.bottomNavigationBarTheme.unselectedItemColor,
+          color: themeProvider.themeData
+              .brightness == Brightness.dark?themeProvider.themeData.primaryColorDark: themeProvider.themeData.primaryColorLight,
         ),
       ),
     );
