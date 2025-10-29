@@ -1,3 +1,4 @@
+import 'package:coffee_app/features/main_pages/product_page.dart';
 import 'package:coffee_app/widgets/round_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -33,7 +34,12 @@ class NewCoffeeCard extends StatelessWidget {
                 child: InkWell(
                   splashColor: const Color.fromRGBO(109, 82, 62, 1.0),
                   onTap: () {
-                    debugPrint('Card tapped.');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (context) => ProductPage(link: link, title: title,description: description,),
+                      ),
+                    );
                   },
                   child: Padding(
                     padding: EdgeInsets.symmetric(
