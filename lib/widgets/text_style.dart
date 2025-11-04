@@ -17,7 +17,7 @@ class TitleText extends StatelessWidget {
       style: GoogleFonts.montserrat(
         fontSize: 35,
         fontWeight: FontWeight.w800, // Extra bold
-        color: Theme.of(context).textTheme.bodyMedium?.color,
+        color: Theme.of(context).primaryColor,
       ),
     );
   }

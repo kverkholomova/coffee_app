@@ -13,6 +13,7 @@ class PopularCoffeeCard extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 3/2,
       child: Card(
+        color: Theme.of(context).primaryColorDark,
         clipBehavior: Clip.hardEdge,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         elevation: 5,

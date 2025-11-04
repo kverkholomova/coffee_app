@@ -15,7 +15,7 @@ class ProfilePage extends StatelessWidget {
       body: ListView(
         children: [
           ListTile(
-            leading: const Icon(Icons.brightness_6),
+            leading: Icon(Icons.brightness_6, color: themeProvider.themeData.primaryIconTheme.color,),
             title: const Text("Theme"),
             onTap: () {
               themeProvider.setTheme(
@@ -26,9 +26,8 @@ class ProfilePage extends StatelessWidget {
               );
             },
           ),
-          const Divider(),
           ListTile(
-            leading: const Icon(Icons.notifications),
+            leading: Icon(Icons.notifications, color: themeProvider.themeData.primaryIconTheme.color),
             title: const Text("Notifications"),
             trailing: Switch(
               activeThumbColor: themeProvider.themeData
@@ -39,9 +38,8 @@ class ProfilePage extends StatelessWidget {
               },
             ),
           ),
-          const Divider(),
           ListTile(
-            leading: const Icon(Icons.language),
+            leading: Icon(Icons.language, color: themeProvider.themeData.primaryIconTheme.color),
             title: const Text("Language"),
             trailing: const Icon(Icons.arrow_forward_ios_rounded),
             onTap: () {
