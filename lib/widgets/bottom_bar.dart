@@ -48,7 +48,6 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> with SingleTick
 
   @override
   Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
 
     return SafeArea(
       child: Scaffold(
@@ -57,7 +56,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> with SingleTick
         ),
         body: BottomBar(
           clip: Clip.hardEdge,
-          barColor: Theme.of(context).primaryColorLight,
+          barColor: Theme.of(context).brightness==Brightness.light?Theme.of(context).primaryColorDark:Theme.of(context).primaryColorLight,
           borderRadius: BorderRadius.circular(500),
           duration: Duration(seconds: 1),
           width: MediaQuery.of(context).size.width * 0.8,
@@ -78,9 +77,9 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> with SingleTick
             indicatorColor: Colors.transparent,
             controller: tabController,
             tabs: [
-              _buildTabIcon(selectedIcon: Icons.home, index: 0, themeProvider: themeProvider, unSelectedIcon: Icons.home_filled),
-              _buildTabIcon(selectedIcon: Icons.search, index: 1, themeProvider: themeProvider, unSelectedIcon: Icons.search_rounded),
-              _buildTabIcon(selectedIcon: Icons.person, index: 2, themeProvider: themeProvider, unSelectedIcon: Icons.perm_identity_outlined),
+              _buildTabIcon(selectedIcon: Icons.home, index: 0, unSelectedIcon: Icons.home_filled),
+              _buildTabIcon(selectedIcon: Icons.search, index: 1, unSelectedIcon: Icons.search_rounded),
+              _buildTabIcon(selectedIcon: Icons.person, index: 2,  unSelectedIcon: Icons.perm_identity_outlined),
 
             ],
           ),
@@ -93,7 +92,6 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> with SingleTick
     required IconData selectedIcon,
     required IconData unSelectedIcon,
     required int index,
-    required ThemeProvider themeProvider,
   }) {
     final isSelected = currentPage == index;
     return SizedBox(
@@ -102,8 +100,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> with SingleTick
         child: Icon(
           size: isSelected?MediaQuery.of(context).size.height * 0.043:MediaQuery.of(context).size.height * 0.033,
           isSelected?selectedIcon:unSelectedIcon,
-          color: themeProvider.themeData
-              .brightness == Brightness.dark?themeProvider.themeData.primaryColorLight: themeProvider.themeData.primaryColorDark,
+          color: Theme.of(context).brightness==Brightness.light?Theme.of(context).primaryColorLight: Theme.of(context).primaryColorDark,
         ),
       ),
     );

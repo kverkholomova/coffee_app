@@ -22,15 +22,15 @@ class ItemCoffeeCard extends StatelessWidget {
           double fontSize = cardWidth * 0.12;      // dynamic text size
           return Card(
             margin: EdgeInsets.all(padding / 2),
-            color: const Color.fromRGBO(255, 241, 232, 1.0),
+            color: Theme.of(context).primaryColor,
             shape: RoundedRectangleBorder(
-              side: const BorderSide(
-                  width: 1.5, color: Color.fromRGBO(109, 82, 62, 1.0)),
+              side: BorderSide(
+                  width: 1.5, color: Theme.of(context).brightness==Brightness.light?Theme.of(context).primaryColorDark:Theme.of(context).primaryColorLight),
               borderRadius: BorderRadius.circular(borderRadius),
             ),
             clipBehavior: Clip.hardEdge,
             child: InkWell(
-              splashColor: const Color.fromRGBO(109, 82, 62, 1.0),
+              splashColor: Theme.of(context).brightness==Brightness.light?Theme.of(context).primaryColorDark:Theme.of(context).primaryColorLight,
               onTap: () {
                 debugPrint('Card tapped.');
               },

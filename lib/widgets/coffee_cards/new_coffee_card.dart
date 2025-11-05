@@ -26,13 +26,13 @@ class NewCoffeeCard extends StatelessWidget {
             children: [
               Card(
                 margin: EdgeInsets.all(padding / 2),
-                color: const Color.fromRGBO(239, 203, 176, 1.0),
+                color: Theme.of(context).cardColor,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(borderRadius),
                 ),
                 clipBehavior: Clip.hardEdge,
                 child: InkWell(
-                  splashColor: const Color.fromRGBO(109, 82, 62, 1.0),
+                  splashColor: Theme.of(context).brightness==Brightness.light?Theme.of(context).primaryColorDark:Theme.of(context).primaryColorLight,
                   onTap: () {
                     Navigator.push(
                       context,

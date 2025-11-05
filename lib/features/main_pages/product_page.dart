@@ -26,8 +26,6 @@ class _ProductPageState extends State<ProductPage> {
 
   @override
   Widget build(BuildContext context) {
-    final themeProvider = context.read<ThemeProvider>();
-
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(),
@@ -39,8 +37,8 @@ class _ProductPageState extends State<ProductPage> {
               child: Container(
                 width: MediaQuery.of(context).size.width * 2,
                 height: MediaQuery.of(context).size.height * 0.75,
-                decoration: const BoxDecoration(
-                  color: Color.fromRGBO(109, 82, 62, 1.0),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).brightness==Brightness.light?Theme.of(context).primaryColorDark:Theme.of(context).primaryColorLight,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(600),
                     topRight: Radius.circular(600),
@@ -61,12 +59,12 @@ class _ProductPageState extends State<ProductPage> {
                 ),
                 CoffeeTitle(
                   widget: widget,
-                  color: themeProvider.themeData.primaryColorLight,
+                  color: Theme.of(context).brightness==Brightness.light?Theme.of(context).primaryColorLight:Theme.of(context).primaryColorDark,
                 ),
 
                 CoffeeDescription(
                   widget: widget,
-                  color: themeProvider.themeData.primaryColorLight,
+                  color: Theme.of(context).brightness==Brightness.light?Theme.of(context).primaryColorLight:Theme.of(context).primaryColorDark,
                 ),
 
                 // Quantity selector
@@ -76,7 +74,7 @@ class _ProductPageState extends State<ProductPage> {
                     IconButton.outlined(
                       style: OutlinedButton.styleFrom(
                         side: BorderSide(
-                          color: themeProvider.themeData.primaryColorLight,
+                          color: Theme.of(context).brightness==Brightness.light?Theme.of(context).primaryColorLight:Theme.of(context).primaryColorDark,
                           width: 1,
                         ),
                         shape: RoundedRectangleBorder(
@@ -86,9 +84,9 @@ class _ProductPageState extends State<ProductPage> {
                       iconSize: 30,
                       icon: Icon(
                         Icons.remove,
-                        color: themeProvider.themeData.primaryColorLight,
+                        color: Theme.of(context).brightness==Brightness.light?Theme.of(context).primaryColorLight:Theme.of(context).primaryColorDark,
                       ),
-                      color: themeProvider.themeData.primaryColorLight,
+                      color: Theme.of(context).brightness==Brightness.light?Theme.of(context).primaryColorLight:Theme.of(context).primaryColorDark,
                       onPressed: () {
                         setState(() {
                           if (quantity > 1) quantity--;
@@ -102,14 +100,14 @@ class _ProductPageState extends State<ProductPage> {
                         "$quantity",
                         style: GoogleFonts.montserrat(
                           fontSize: MediaQuery.of(context).size.width * 0.08,
-                          color: themeProvider.themeData.primaryColorLight,
+                          color: Theme.of(context).brightness==Brightness.light?Theme.of(context).primaryColorLight:Theme.of(context).primaryColorDark,
                         ),
                       ),
                     ),
                     IconButton.outlined(
                       style: OutlinedButton.styleFrom(
                         side: BorderSide(
-                          color: themeProvider.themeData.primaryColorLight,
+                          color: Theme.of(context).brightness==Brightness.light?Theme.of(context).primaryColorLight:Theme.of(context).primaryColorDark,
                           width: 1,
                         ),
                         shape: RoundedRectangleBorder(
@@ -120,9 +118,9 @@ class _ProductPageState extends State<ProductPage> {
 
                       icon: Icon(
                         Icons.add,
-                        color: themeProvider.themeData.primaryColorLight,
+                        color: Theme.of(context).brightness==Brightness.light?Theme.of(context).primaryColorLight:Theme.of(context).primaryColorDark,
                       ),
-                      color: themeProvider.themeData.primaryColorLight,
+                      color: Theme.of(context).brightness==Brightness.light?Theme.of(context).primaryColorLight:Theme.of(context).primaryColorDark,
                       onPressed: () {
                         setState(() {
                           quantity++;
@@ -139,15 +137,15 @@ class _ProductPageState extends State<ProductPage> {
                   children: [
                     CoffeeSizeButton(
                       size: 40,
-                      color: themeProvider.themeData.primaryColorLight,
+                      color: Theme.of(context).brightness==Brightness.light?Theme.of(context).primaryColorLight:Theme.of(context).primaryColorDark,
                     ),
                     CoffeeSizeButton(
                       size: 45,
-                      color: themeProvider.themeData.primaryColorLight,
+                      color: Theme.of(context).brightness==Brightness.light?Theme.of(context).primaryColorLight:Theme.of(context).primaryColorDark,
                     ),
                     CoffeeSizeButton(
                       size: 50,
-                      color: themeProvider.themeData.primaryColorLight,
+                      color: Theme.of(context).brightness==Brightness.light?Theme.of(context).primaryColorLight:Theme.of(context).primaryColorDark,
                     ),
                   ],
                 ),
@@ -156,8 +154,8 @@ class _ProductPageState extends State<ProductPage> {
                   child: ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: themeProvider.themeData.primaryColorLight,
-                      foregroundColor: themeProvider.themeData.primaryColorDark,
+                      backgroundColor: Theme.of(context).brightness==Brightness.light?Theme.of(context).primaryColorLight:Theme.of(context).primaryColorDark,
+                      foregroundColor: Theme.of(context).brightness==Brightness.light?Theme.of(context).primaryColorLight:Theme.of(context).primaryColorDark,
                       padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12), // rounded corners
@@ -167,7 +165,7 @@ class _ProductPageState extends State<ProductPage> {
                     child: Text("Add to cart", style:
                     GoogleFonts.montserrat(
                       fontSize: MediaQuery.of(context).size.width * 0.045,
-                      color: themeProvider.themeData.primaryColorDark,
+                      color: Theme.of(context).brightness==Brightness.light?Theme.of(context).primaryColorDark:Theme.of(context).primaryColorLight,
                     )
                     ),
                   ),
