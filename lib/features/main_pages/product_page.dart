@@ -3,7 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/theme_provider.dart';
+import '../../widgets/button_style.dart';
 import '../../widgets/round_image.dart';
+import '../../widgets/text_style.dart';
 
 class ProductPage extends StatefulWidget {
   final String link;
@@ -179,81 +181,5 @@ class _ProductPageState extends State<ProductPage> {
   }
 }
 
-class CoffeeDescription extends StatelessWidget {
-  final Color color;
-  const CoffeeDescription({
-    super.key,
-    required this.widget,
-    required this.color,
-  });
 
-  final ProductPage widget;
 
-  @override
-  Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: BoxConstraints(
-        maxWidth: MediaQuery.of(context).size.width * 0.7,
-      ),
-      child: Text(
-        widget.description,
-        maxLines: 3,
-        overflow: TextOverflow.ellipsis,
-        textAlign: TextAlign.start,
-        style: GoogleFonts.montserrat(
-          fontSize: MediaQuery.of(context).size.width * 0.03,
-          color: color,
-        ),
-      ),
-    );
-  }
-}
-
-class CoffeeTitle extends StatelessWidget {
-  final Color color;
-  const CoffeeTitle({super.key, required this.widget, required this.color});
-
-  final ProductPage widget;
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      widget.title.toUpperCase(),
-      textAlign: TextAlign.center,
-      style: GoogleFonts.montserrat(
-        fontSize: MediaQuery.of(context).size.width * 0.07,
-        fontWeight: FontWeight.w800,
-        color: color,
-      ),
-    );
-  }
-}
-
-class CoffeeSizeButton extends StatelessWidget {
-  final double size;
-  final Color color;
-  const CoffeeSizeButton({super.key, required this.size, required this.color});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: ClipOval(
-        child: IconButton.outlined(
-          style: OutlinedButton.styleFrom(
-            side: BorderSide(color: color, width: 1),
-          ),
-          color: color,
-          iconSize: size,
-          onPressed: () {},
-          icon: Image.asset(
-            'assets/coffee_to_go_cup_icon.png', // path in your assets folder
-            width: size,
-            height: size,
-            color: color, // optional: tint the image
-          ),
-        ),
-      ),
-    );
-  }
-}
