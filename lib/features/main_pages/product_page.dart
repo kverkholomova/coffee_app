@@ -30,7 +30,11 @@ class _ProductPageState extends State<ProductPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          leading: IconButton(onPressed: (){
+              Navigator.pop(context);
+          }, icon: Icon(Icons.arrow_back_ios)),
+        ),
         body: Stack(
           alignment: Alignment.center,
           children: [
