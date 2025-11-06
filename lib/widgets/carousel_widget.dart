@@ -33,8 +33,9 @@ class _CoffeeCarouselState extends State<CoffeeCarousel> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 350,
+      height: MediaQuery.of(context).size.width * 0.85,
       child: PageView.builder(
+        padEnds: false,
         controller: _controller,
         itemCount: coffees.length,
         itemBuilder: (context, index) {

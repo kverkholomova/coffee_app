@@ -8,7 +8,12 @@ class NewCoffeeCard extends StatelessWidget {
   final String description;
   final String link;
 
-  const NewCoffeeCard({super.key, required this.title, required this.link, required this.description});
+  const NewCoffeeCard({
+    super.key,
+    required this.title,
+    required this.link,
+    required this.description,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +22,10 @@ class NewCoffeeCard extends StatelessWidget {
       child: LayoutBuilder(
         builder: (context, constraints) {
           double cardWidth = constraints.maxWidth; // width the parent allows
-          double imageSize = cardWidth * 0.6;      // 60% of card width
-          double borderRadius = cardWidth * 0.05;  // 20% of card width
-          double padding = cardWidth * 0.1;        // 10% of card width
-          double fontSize = cardWidth * 0.04;      // dynamic text size
+          double imageSize = cardWidth * 0.6; // 60% of card width
+          double borderRadius = cardWidth * 0.05; // 20% of card width
+          double padding = cardWidth * 0.1; // 10% of card width
+          double fontSize = cardWidth * 0.04; // dynamic text size
           return Stack(
             clipBehavior: Clip.none,
             children: [
@@ -32,18 +37,26 @@ class NewCoffeeCard extends StatelessWidget {
                 ),
                 clipBehavior: Clip.hardEdge,
                 child: InkWell(
-                  splashColor: Theme.of(context).brightness==Brightness.light?Theme.of(context).primaryColorDark:Theme.of(context).primaryColorLight,
+                  splashColor: Theme.of(context).brightness == Brightness.light
+                      ? Theme.of(context).primaryColorDark
+                      : Theme.of(context).primaryColorLight,
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute<void>(
-                        builder: (context) => ProductPage(link: link, title: title,description: description,),
+                        builder: (context) => ProductPage(
+                          link: link,
+                          title: title,
+                          description: description,
+                        ),
                       ),
                     );
                   },
                   child: Padding(
                     padding: EdgeInsets.symmetric(
-                        vertical: padding, horizontal: padding),
+                      vertical: padding,
+                      horizontal: padding,
+                    ),
                     child: Row(
                       children: [
                         Column(
@@ -56,27 +69,69 @@ class NewCoffeeCard extends StatelessWidget {
                               style: GoogleFonts.montserrat(
                                 fontSize: cardWidth * 0.055,
                                 fontWeight: FontWeight.w800,
-                                color: Theme.of(context).textTheme.bodyMedium?.color,
+                                color: Theme.of(
+                                  context,
+                                ).textTheme.bodyMedium?.color,
                               ),
                             ),
                             ConstrainedBox(
-                              constraints: BoxConstraints(maxWidth: cardWidth*0.45),
+                              constraints: BoxConstraints(
+                                maxWidth: cardWidth * 0.45,
+                              ),
                               child: Text(
                                 description,
-                                maxLines: 3,
+                                maxLines: 2,
                                 overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.start,
                                 style: GoogleFonts.montserrat(
                                   fontSize: fontSize,
-                                  color: Theme.of(context).textTheme.bodyMedium?.color,
+                                  color: Theme.of(
+                                    context,
+                                  ).textTheme.bodyMedium?.color,
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: cardWidth * 0.04),
+                            SizedBox(
+                              width: cardWidth * 0.4,
+                              child: ElevatedButton(
+                                onPressed: () {},
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor:
+                                      Theme.of(context).brightness ==
+                                          Brightness.light
+                                      ? Theme.of(context).primaryColorDark
+                                      : Theme.of(context).primaryColorLight,
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 20,
+                                    vertical: 12,
+                                  ),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(
+                                      12,
+                                    ), // rounded corners
+                                  ),
+                                  elevation: 4, // shadow
+                                ),
+                                child: Text(
+                                  "Order now",
+                                  style: GoogleFonts.montserrat(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize:
+                                        MediaQuery.of(context).size.width *
+                                        0.035,
+                                    color:
+                                        Theme.of(context).brightness ==
+                                            Brightness.light
+                                        ? Theme.of(context).primaryColorLight
+                                        : Theme.of(context).primaryColorDark,
+                                  ),
                                 ),
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(
-                          width: cardWidth*0.2,
-                        )
+                        SizedBox(width: cardWidth * 0.2),
                       ],
                     ),
                   ),
@@ -98,4 +153,3 @@ class NewCoffeeCard extends StatelessWidget {
     );
   }
 }
-

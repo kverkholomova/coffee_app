@@ -23,8 +23,8 @@ class _CategoryCarouselState extends State<CategoryCarousel> {
   Widget build(BuildContext context) {
     return SizedBox(
       height: MediaQuery.of(context).size.width * 0.1,
-      width: double.maxFinite,
       child: PageView.builder(
+        padEnds: false,
         controller: _controller,
         itemCount: categories.length,
         itemBuilder: (context, index) {
