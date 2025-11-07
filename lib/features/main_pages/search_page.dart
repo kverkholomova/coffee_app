@@ -19,14 +19,13 @@ class SearchPage extends StatelessWidget {
           scrollDirection: Axis.vertical,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-
             children: [
               SearchBarApp(),
               SizedBox(height: MediaQuery.of(context).size.width * 0.08),
-
               CategoryCarousel(),
               TitleText(title: "Popular"),
               CoffeeCarousel(),
+
             ],
           ),
         ),

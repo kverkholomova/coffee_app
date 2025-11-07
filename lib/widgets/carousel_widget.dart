@@ -9,8 +9,8 @@ class CoffeeCarousel extends StatefulWidget {
 }
 
 class _CoffeeCarouselState extends State<CoffeeCarousel> {
-  final PageController _controller = PageController(viewportFraction: 0.65);
-  double _currentPage = 0.0;
+  final PageController _controller = PageController(viewportFraction: 0.65, initialPage: 1,);
+  double _currentPage = 1.0;
 
   final List<PopularCoffee> coffees = [
     PopularCoffee(name: 'Cappuccino', image: "assets/cappuccino.jpg", price: "24 zł"),
@@ -35,7 +35,7 @@ class _CoffeeCarouselState extends State<CoffeeCarousel> {
     return SizedBox(
       height: MediaQuery.of(context).size.width * 0.85,
       child: PageView.builder(
-        padEnds: false,
+        // padEnds: false,
         controller: _controller,
         itemCount: coffees.length,
         itemBuilder: (context, index) {
