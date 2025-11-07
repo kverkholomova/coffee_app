@@ -4,8 +4,15 @@ import 'package:provider/provider.dart';
 import '../../providers/theme_provider.dart';
 
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
+
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  bool light = false;
 
   @override
   Widget build(BuildContext context) {
@@ -30,11 +37,20 @@ class ProfilePage extends StatelessWidget {
             leading: Icon(Icons.notifications, color: themeProvider.themeData.primaryIconTheme.color),
             title: const Text("Notifications"),
             trailing: Switch(
+              trackOutlineColor: WidgetStateProperty.all<Color>(themeProvider.themeData
+                  .brightness == Brightness.dark?themeProvider.themeData.primaryColorLight: themeProvider.themeData.primaryColorDark),
               activeThumbColor: themeProvider.themeData
                   .brightness == Brightness.dark?themeProvider.themeData.primaryColorLight: themeProvider.themeData.primaryColorDark,
-              value: true,
+              value: light,
+              inactiveTrackColor: themeProvider.themeData
+                  .brightness == Brightness.dark?themeProvider.themeData.primaryColorDark: themeProvider.themeData.primaryColorLight,
+              inactiveThumbColor: themeProvider.themeData
+                  .brightness == Brightness.dark?themeProvider.themeData.primaryColorLight: themeProvider.themeData.primaryColorDark,
               onChanged: (bool value) {
 
+                setState(() {
+                  light = value;
+                });
               },
             ),
           ),
