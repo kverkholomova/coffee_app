@@ -30,7 +30,7 @@ class SearchPage extends StatelessWidget {
 
               Center(
                 child: CustomElevatedButton(
-                  cardWidth: MediaQuery.of(context).size.width * 0.6,
+                  cardWidth: MediaQuery.of(context).size.width * 0.4,
                   title: "More",
                   fontSize: MediaQuery.of(context).size.width * 0.05,
                   fontWeight: FontWeight.w400, textColor: Theme.of(context).brightness ==

@@ -12,7 +12,7 @@ class PopularCoffeeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: AspectRatio(
-        aspectRatio: 3/2,
+        aspectRatio: 4/2,
         child: Card(
           color: Theme.of(context).primaryColor,
           clipBehavior: Clip.hardEdge,
@@ -26,32 +26,29 @@ class PopularCoffeeCard extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 AspectRatio(
                     aspectRatio: 1/1,
                     child: Image.asset(link, fit: BoxFit.cover,)),
                 SizedBox(height: 10),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Text(
                     name,
                     textAlign: TextAlign.start,
                     style: GoogleFonts.montserrat(
-                      fontSize: 25,
+                      fontSize: 20,
                       fontWeight: FontWeight.w800, // Extra bold
                       color: Theme.of(context).textTheme.bodyMedium?.color,
                     ),
                   ),
                 ),
-                SizedBox(height: 10),
-
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: Text(
                     price,
                     textAlign: TextAlign.end,
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                   ),
                 ),
               ],

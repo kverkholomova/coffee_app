@@ -63,7 +63,7 @@ class CustomElevatedButton extends StatelessWidget {
           ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
-              12,
+              25,
             ), // rounded corners
           ),
           elevation: 4, // shadow

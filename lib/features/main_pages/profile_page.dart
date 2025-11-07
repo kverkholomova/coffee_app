@@ -22,6 +22,8 @@ class _ProfilePageState extends State<ProfilePage> {
       body: ListView(
         children: [
           ListTile(
+            splashColor: themeProvider.themeData
+                .brightness == Brightness.dark?themeProvider.themeData.primaryColorLight: themeProvider.themeData.primaryColorDark,
             leading: Icon(Icons.brightness_6, color: themeProvider.themeData.primaryIconTheme.color,),
             title: const Text("Theme"),
             onTap: () {
