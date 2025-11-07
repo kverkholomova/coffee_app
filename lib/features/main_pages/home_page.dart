@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-import '../../widgets/carousel_widget.dart';
+import '../../widgets/coffee_carousel_widget.dart';
 import '../../widgets/coffee_cards/item_coffee_card.dart';
 import '../../widgets/coffee_cards/new_coffee_card.dart';
 import '../../widgets/text_style.dart';

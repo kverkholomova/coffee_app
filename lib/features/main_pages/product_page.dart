@@ -155,27 +155,15 @@ class _ProductPageState extends State<ProductPage> {
                     ),
                   ],
                 ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.7,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Theme.of(context).brightness==Brightness.light?Theme.of(context).primaryColorLight:Theme.of(context).primaryColorDark,
-                      foregroundColor: Theme.of(context).brightness==Brightness.light?Theme.of(context).primaryColorLight:Theme.of(context).primaryColorDark,
-                      padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12), // rounded corners
-                      ),
-                      elevation: 4, // shadow
-                    ),
-                    child: Text("Add to cart", style:
-                    GoogleFonts.montserrat(
-                      fontSize: MediaQuery.of(context).size.width * 0.045,
-                      color: Theme.of(context).brightness==Brightness.light?Theme.of(context).primaryColorDark:Theme.of(context).primaryColorLight,
-                    )
-                    ),
-                  ),
+                CustomElevatedButton(
+                  cardWidth: MediaQuery.of(context).size.width * 0.7,
+                  title: "Add to cart",
+                  fontSize: MediaQuery.of(context).size.width * 0.045,
+                  fontWeight: FontWeight.w300,
+                  backgroundColor: Theme.of(context).brightness==Brightness.light?Theme.of(context).primaryColorLight:Theme.of(context).primaryColorDark,
+                  textColor: Theme.of(context).brightness==Brightness.light?Theme.of(context).primaryColorDark:Theme.of(context).primaryColorLight,
                 ),
+
               ],
             ),
           ],

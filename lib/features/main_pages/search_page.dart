@@ -1,9 +1,10 @@
-import 'package:coffee_app/widgets/category_carousel.dart';
+import 'package:coffee_app/widgets/category_carousel_widget.dart';
 import 'package:flutter/material.dart';
 
-import '../../widgets/carousel_widget.dart';
+import '../../widgets/button_style.dart';
+import '../../widgets/coffee_carousel_widget.dart';
 import '../../widgets/categories_widget.dart';
-import '../../widgets/search_bar.dart';
+import '../../widgets/bar_widgets/search_bar.dart';
 import '../../widgets/text_style.dart';
 
 class SearchPage extends StatelessWidget {
@@ -25,7 +26,22 @@ class SearchPage extends StatelessWidget {
               CategoryCarousel(),
               TitleText(title: "Popular"),
               CoffeeCarousel(),
+              SizedBox(height: MediaQuery.of(context).size.width * 0.05),
 
+              Center(
+                child: CustomElevatedButton(
+                  cardWidth: MediaQuery.of(context).size.width * 0.6,
+                  title: "More",
+                  fontSize: MediaQuery.of(context).size.width * 0.05,
+                  fontWeight: FontWeight.w400, textColor: Theme.of(context).brightness ==
+                    Brightness.light
+                    ? Theme.of(context).primaryColorLight
+                    : Theme.of(context).primaryColorDark, backgroundColor: Theme.of(context).brightness ==
+                    Brightness.light
+                    ? Theme.of(context).primaryColorDark
+                    : Theme.of(context).primaryColorLight,
+                ),
+              ),
             ],
           ),
         ),

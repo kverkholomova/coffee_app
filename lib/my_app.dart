@@ -1,5 +1,5 @@
 import 'package:coffee_app/providers/theme_provider.dart';
-import 'package:coffee_app/widgets/bottom_bar.dart';
+import 'package:coffee_app/widgets/bar_widgets/bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

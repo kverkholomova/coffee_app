@@ -3,6 +3,8 @@ import 'package:coffee_app/widgets/round_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../button_style.dart';
+
 class NewCoffeeCard extends StatelessWidget {
   final String title;
   final String description;
@@ -92,43 +94,14 @@ class NewCoffeeCard extends StatelessWidget {
                               ),
                             ),
                             SizedBox(height: cardWidth * 0.04),
-                            SizedBox(
-                              width: cardWidth * 0.4,
-                              child: ElevatedButton(
-                                onPressed: () {},
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor:
-                                      Theme.of(context).brightness ==
-                                          Brightness.light
-                                      ? Theme.of(context).primaryColorDark
-                                      : Theme.of(context).primaryColorLight,
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: 20,
-                                    vertical: 12,
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(
-                                      12,
-                                    ), // rounded corners
-                                  ),
-                                  elevation: 4, // shadow
-                                ),
-                                child: Text(
-                                  "Order now",
-                                  style: GoogleFonts.montserrat(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize:
-                                        MediaQuery.of(context).size.width *
-                                        0.035,
-                                    color:
-                                        Theme.of(context).brightness ==
-                                            Brightness.light
-                                        ? Theme.of(context).primaryColorLight
-                                        : Theme.of(context).primaryColorDark,
-                                  ),
-                                ),
-                              ),
-                            ),
+                            CustomElevatedButton(cardWidth: cardWidth * 0.4, title: "Order now", fontSize: MediaQuery.of(context).size.width *
+                                0.035, fontWeight: FontWeight.w600, textColor: Theme.of(context).brightness ==
+                                Brightness.light
+                                ? Theme.of(context).primaryColorLight
+                                : Theme.of(context).primaryColorDark, backgroundColor: Theme.of(context).brightness ==
+                                Brightness.light
+                                ? Theme.of(context).primaryColorDark
+                                : Theme.of(context).primaryColorLight,),
                           ],
                         ),
                         SizedBox(width: cardWidth * 0.2),
@@ -153,3 +126,5 @@ class NewCoffeeCard extends StatelessWidget {
     );
   }
 }
+
+

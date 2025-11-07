@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_floating_bottom_bar/flutter_floating_bottom_bar.dart';
 import 'package:provider/provider.dart';
 
-import '../features/main_pages/home_page.dart';
+import '../../features/main_pages/home_page.dart';
 
 class CustomBottomNavBar extends StatefulWidget {
   const CustomBottomNavBar({Key? key, required this.title}) : super(key: key);
