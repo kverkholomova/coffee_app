@@ -17,8 +17,7 @@ class HomePage extends StatelessWidget {
     return SafeArea(
       child: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        scrollDirection: Axis.vertical,
+        padding: const EdgeInsets.symmetric(horizontal: 20).copyWith(bottom: 100),        scrollDirection: Axis.vertical,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,

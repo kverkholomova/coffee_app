@@ -65,7 +65,6 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> with SingleTick
           body: (context, controller) => TabBarView(
             controller: tabController,
             children: [
-
               HomePage(),
               SearchPage(),
               ProfilePage()
