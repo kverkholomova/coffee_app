@@ -1,3 +1,4 @@
+import 'package:coffee_app/widgets/round_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -29,7 +30,7 @@ class PopularCoffeeCard extends StatelessWidget {
               children: [
                 AspectRatio(
                     aspectRatio: 1/1,
-                    child: Image.asset(link, fit: BoxFit.cover,)),
+                    child: CircularNetworkImage(link: link)),
                 SizedBox(height: 10),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),

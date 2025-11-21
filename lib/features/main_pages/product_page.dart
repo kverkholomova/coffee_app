@@ -60,7 +60,7 @@ class _ProductPageState extends State<ProductPage> {
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.5,
                     height: MediaQuery.of(context).size.height * 0.3,
-                    child: CircularImage(link: widget.link),
+                    child: CircularNetworkImage(link: widget.link),
                   ),
                 ),
                 CoffeeTitle(

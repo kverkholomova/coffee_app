@@ -47,7 +47,7 @@ class ItemCoffeeCard extends StatelessWidget {
                     SizedBox(
                       width: imageSize,
                       height: imageSize,
-                      child: CircularImage(link: link),
+                      child: CircularAssetImage(link: link),
                     ),
                     SizedBox(height: padding / 2),
                     Text(

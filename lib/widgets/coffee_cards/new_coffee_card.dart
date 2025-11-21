@@ -116,7 +116,7 @@ class NewCoffeeCard extends StatelessWidget {
                 child: SizedBox(
                   width: imageSize,
                   height: imageSize,
-                  child: CircularImage(link: link),
+                  child: CircularNetworkImage(link: link),
                 ),
               ),
             ],

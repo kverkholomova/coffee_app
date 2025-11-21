@@ -1,58 +1,69 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../widgets/coffee_carousel_widget.dart';
 import '../../widgets/coffee_cards/item_coffee_card.dart';
 import '../../widgets/coffee_cards/new_coffee_card.dart';
 import '../../widgets/text_style.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({
-    super.key,
-  });
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final _future = Supabase.instance.client.from('products').select();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-        padding: const EdgeInsets.symmetric(horizontal: 20).copyWith(bottom: 100),        scrollDirection: Axis.vertical,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            TitleText(title: "Item",),
-            Row(
-              children: [
-                ItemCoffeeCard(
-                  title: "hot coffee",
-                  link: "assets/hot_coffee.jpg",
-                ),
-                ItemCoffeeCard(
-                  title: "cold coffee",
-                  link: "assets/cold_coffee.jpg",
-                ),
-              ],
-            ),
-            TitleText(title: "New",),
-            NewCoffeeCard(
-              title: "iced latte",
-              description: "a cold coffee drink made with espresso, "
-                  "cold milk, and ice, creating a smoother and creamier "
-                  "texture than iced coffee. It's a chilled version of a traditional "
-                  "latte, prepared by pouring shots of espresso over ice and then "
-                  "adding cold milk, often with an optional sweetener "
-                  "like a flavored syrup.",
-              link: "assets/iced-coffee.png",
-            ),
-            TitleText(title: "Popular",),
-            CoffeeCarousel()
-          ],
-        ),
+      child: FutureBuilder(
+        future: _future,
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          final products = snapshot.data!;
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: ListView.builder(
+                itemCount: products.length,
+                itemBuilder: ((context, index) {
+                  final product = products[index];
+                return Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    TitleText(title: "Item"),
+                    Row(
+                      children: [
+                        ItemCoffeeCard(
+                          title: "hot coffee",
+                          link: "assets/hot_coffee.jpg",
+                        ),
+                        ItemCoffeeCard(
+                          title: "cold coffee",
+                          link: "assets/cold_coffee.jpg",
+                        ),
+                      ],
+                    ),
+                    TitleText(title: "New"),
+                    NewCoffeeCard(
+                      title: product['title'],
+                      description:product['description'],
+                      link: product['image_url'],
+                    ),
+                    // TitleText(title: "Popular"),
+                    // CoffeeCarousel(),
+                  ],
+                );
+              }
+            )),
+          );
+        },
       ),
     );
   }
 }
-
